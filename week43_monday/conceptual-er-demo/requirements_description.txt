@@ -1,0 +1,5 @@
+Ett företag vill kunna hålla reda på sina kunder, deras beställningar och fakturor.
+Varje kund kan göra flera beställningar.
+Varje beställning innehåller en eller flera produkter.
+När en beställning är klar ska en faktura skapas kopplad till just den beställningen.
+Systemet ska kunna visa vilka produkter som finns och vad de kostar.

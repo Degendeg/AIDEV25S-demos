@@ -1,0 +1,56 @@
+Krav i texten: "Hålla reda på sina kunder"
+→ Motsvaras av: Customer-tabellen
+
+Krav i texten: "Varje kund kan göra flera beställningar"
+→ Motsvaras av: 1:N-relation mellan Customer → Order
+
+Krav i texten: "Varje beställning innehåller en eller flera produkter"
+→ Motsvaras av: 1:N mellan Order → OrderItem, som i sin tur har FK till Product (M:N-relation via OrderItem)
+
+Krav i texten: "När en beställning är klar ska en faktura skapas kopplad till just den beställningen"
+→ Motsvaras av: 1:1-relation mellan Order och Invoice
+
+Krav i texten: "Systemet ska kunna visa vilka produkter som finns och vad de kostar"
+→ Motsvaras av: Product-tabellen med ProductName och Price
+
+---------------------------------------------------------------------
+
+OrderItem fungerar som en kopplingstabell (M:N) mellan Order och Product.
+
+---------------------------------------------------------------------
+
+CREATE TABLE Customer (
+    CustomerId INT AUTO_INCREMENT PRIMARY KEY,
+    Name VARCHAR(255) NOT NULL,
+    Email VARCHAR(100)
+);
+
+CREATE TABLE `Order` (
+    OrderId INT AUTO_INCREMENT PRIMARY KEY,
+    OrderDate DATE,
+    CustomerId INT,
+    FOREIGN KEY (CustomerId) REFERENCES Customer(CustomerId)
+);
+
+CREATE TABLE Product (
+    ProductId INT AUTO_INCREMENT PRIMARY KEY,
+    ProductName VARCHAR(255) NOT NULL,
+    Price DECIMAL(10,3),
+    ProductCol VARCHAR(45)
+);
+
+CREATE TABLE OrderItem (
+    OrderItemId INT AUTO_INCREMENT PRIMARY KEY,
+    OrderId INT,
+    ProductId INT,
+    Quantity INT,
+    FOREIGN KEY (OrderId) REFERENCES `Order`(OrderId),
+    FOREIGN KEY (ProductId) REFERENCES Product(ProductId)
+);
+
+CREATE TABLE Invoice (
+    InvoiceId INT AUTO_INCREMENT PRIMARY KEY,
+    OrderId INT,
+    InvoiceDate DATE,
+    FOREIGN KEY (OrderId) REFERENCES `Order`(OrderId)
+);
