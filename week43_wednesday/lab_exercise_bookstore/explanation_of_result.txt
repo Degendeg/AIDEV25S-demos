@@ -1,0 +1,9 @@
+Databasen beskriver en bokhandel där alla centrala delar hänger ihop logiskt:
+
+Kund kan lägga flera orders, vilket skapar en en-till-många-relation mellan Kund och Order.
+
+Varje Order innehåller en eller flera böcker via OrderDetalj, som fungerar som en mellan-tabell och möjliggör en många-till-många-relation mellan Order och Bok.
+
+Bok innehåller information om titel, pris och vilken Författare som skrivit den, vilket skapar en en-till-många-relation mellan Författare och Bok.
+
+På så sätt hålls data normaliserad: kunder, beställningar, böcker och författare lagras separat men kopplas ihop via tydliga PKs/FKs - vilket minskar redundans och gör databasen flexiblare.
