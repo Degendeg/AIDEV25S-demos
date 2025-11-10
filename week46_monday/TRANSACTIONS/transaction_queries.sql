@@ -41,7 +41,7 @@ COMMIT;
 START TRANSACTION;
 
 -- 3️ Skapa ny order för kund 103
-INSERT INTO customer_order (customer_id, order_date)
+INSERT INTO `order` (customer_id, order_date)
 VALUES (103, CURDATE());
 
 -- Spara order_id till variabel
@@ -57,7 +57,7 @@ SET units_in_stock = units_in_stock - 5
 WHERE product_id = 11;
 
 -- 6️ Kontrollera vad som hänt (innan commit)
-SELECT * FROM customer_order WHERE order_id = @new_order_id;
+SELECT * FROM `order` WHERE order_id = @new_order_id;
 SELECT * FROM order_detail WHERE order_id = @new_order_id;
 SELECT product_id, units_in_stock FROM product WHERE product_id = 11;
 
@@ -68,5 +68,5 @@ SELECT product_id, units_in_stock FROM product WHERE product_id = 11;
 -- ROLLBACK;
 
 -- 9️ Kontrollera efter commit/rollback:
-SELECT * FROM customer_order WHERE order_id = @new_order_id;
+SELECT * FROM `order` WHERE order_id = @new_order_id;
 SELECT product_id, units_in_stock FROM product WHERE product_id = 11;
