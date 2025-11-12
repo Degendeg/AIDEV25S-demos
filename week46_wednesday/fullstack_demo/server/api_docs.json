@@ -1,0 +1,132 @@
+{
+    "description": "Northwind Products API",
+    "endpoints": [
+        {
+            "path": "/products",
+            "methods": [
+                "GET"
+            ],
+            "description": "Retrieve a list of all products",
+            "parameters": null,
+            "responses": {
+                "200": "Returns a list of product objects"
+            }
+        },
+        {
+            "path": "/products/<product_id>",
+            "methods": [
+                "GET"
+            ],
+            "description": "Retrieve a single product by its ID",
+            "parameters": [
+                {
+                    "name": "product_id",
+                    "in": "path",
+                    "required": true,
+                    "type": "integer",
+                    "description": "ID of the product to retrieve"
+                }
+            ],
+            "responses": {
+                "200": "Returns a product object",
+                "404": "Product not found"
+            }
+        },
+        {
+            "path": "/products",
+            "methods": [
+                "POST"
+            ],
+            "description": "Create a new product",
+            "parameters": [
+                {
+                    "name": "ProductName",
+                    "in": "body",
+                    "required": true,
+                    "type": "string",
+                    "description": "Name of the product"
+                },
+                {
+                    "name": "SupplierID",
+                    "in": "body",
+                    "required": true,
+                    "type": "integer",
+                    "description": "ID of the supplier"
+                },
+                {
+                    "name": "CategoryID",
+                    "in": "body",
+                    "required": true,
+                    "type": "integer",
+                    "description": "ID of the category"
+                },
+                {
+                    "name": "QuantityPerUnit",
+                    "in": "body",
+                    "required": true,
+                    "type": "string",
+                    "description": "Quantity per unit"
+                },
+                {
+                    "name": "UnitPrice",
+                    "in": "body",
+                    "required": true,
+                    "type": "float",
+                    "description": "Unit price of the product"
+                },
+                {
+                    "name": "UnitsInStock",
+                    "in": "body",
+                    "required": true,
+                    "type": "integer",
+                    "description": "Units available in stock"
+                }
+            ],
+            "responses": {
+                "201": "Product created successfully",
+                "400": "Invalid input"
+            }
+        },
+        {
+            "path": "/products/<product_id>",
+            "methods": [
+                "PUT"
+            ],
+            "description": "Update an existing product",
+            "parameters": [
+                {
+                    "name": "product_id",
+                    "in": "path",
+                    "required": true,
+                    "type": "integer",
+                    "description": "ID of the product to update"
+                }
+            ],
+            "responses": {
+                "200": "Product updated successfully",
+                "400": "Invalid input",
+                "404": "Product not found"
+            }
+        },
+        {
+            "path": "/products/<product_id>",
+            "methods": [
+                "DELETE"
+            ],
+            "description": "Delete a product by its ID",
+            "parameters": [
+                {
+                    "name": "product_id",
+                    "in": "path",
+                    "required": true,
+                    "type": "integer",
+                    "description": "ID of the product to delete"
+                }
+            ],
+            "responses": {
+                "200": "Product deleted successfully",
+                "404": "Product not found"
+            }
+        }
+    ]
+}
