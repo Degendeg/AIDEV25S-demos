@@ -1,5 +1,5 @@
 Run locally:
-- go to folder /fullstack-demo
+- go to folder /fullstack_demo
 - run: `pip install -r requirements.txt`
 - if succesful - run `py api.py` and chec info in terminal for `URL` + `PORT`
 
