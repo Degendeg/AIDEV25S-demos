@@ -40,42 +40,42 @@
             "description": "Create a new product",
             "parameters": [
                 {
-                    "name": "ProductName",
+                    "name": "product_name",
                     "in": "body",
                     "required": true,
                     "type": "string",
                     "description": "Name of the product"
                 },
                 {
-                    "name": "SupplierID",
+                    "name": "supplier_id",
                     "in": "body",
                     "required": true,
                     "type": "integer",
                     "description": "ID of the supplier"
                 },
                 {
-                    "name": "CategoryID",
+                    "name": "category_id",
                     "in": "body",
                     "required": true,
                     "type": "integer",
                     "description": "ID of the category"
                 },
                 {
-                    "name": "QuantityPerUnit",
+                    "name": "quantity_per_unit",
                     "in": "body",
                     "required": true,
                     "type": "string",
                     "description": "Quantity per unit"
                 },
                 {
-                    "name": "UnitPrice",
+                    "name": "unit_price",
                     "in": "body",
                     "required": true,
                     "type": "float",
                     "description": "Unit price of the product"
                 },
                 {
-                    "name": "UnitsInStock",
+                    "name": "units_in_stock",
                     "in": "body",
                     "required": true,
                     "type": "integer",
